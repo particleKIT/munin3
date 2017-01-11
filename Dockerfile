@@ -27,6 +27,7 @@ ADD munin.conf /usr/local/etc/munin/munin.conf
 
 ENV MUNIN_CRON="*/5 * * * *" \
     MUNIN_WORKERS="16" \
+    MUNIN_TIMEOUT="20" \
     HOSTS_URL="" \
     NOTIFICATION_FROM="admin@munin" \
     NOTIFICATION_TO="admin@munin" \

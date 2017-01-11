@@ -27,8 +27,9 @@ rm cronlist
 echo -e "account default\nfrom $NOTIFICATION_FROM\nhost $NOTIFICATION_RELAY" > /var/lib/munin/.msmtprc
 echo -e "contact.$NOTIFICATION_NAME.command mail -s 'Munin notification' $NOTIFICATION_TO" > /usr/local/etc/munin/munin-conf.d/notification
 
-# set maximum number of workers
-sed -i 's/{WORKERS}/16/g' /usr/local/etc/munin/munin.conf
+# set munin.conf parameters from envs
+sed -i "s/{WORKERS}/$MUNIN_WORKERS/g" /usr/local/etc/munin/munin.conf
+sed -i "s/{TIMEOUT}/$MUNIN_TIMEOUT/g" /usr/local/etc/munin/munin.conf
 
 # make munin own the rrds
 chown -R munin:munin /var/lib/munin
