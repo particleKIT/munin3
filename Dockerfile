@@ -7,7 +7,7 @@ RUN apk update && apk upgrade && apk add \
     perl-log-log4perl perl-html-template perl-net-ssleay \
     perl-net-server perl-date-manip perl-io-socket-inet6 \
     perl-log-dispatch perl-dbi perl-dbd-sqlite perl-http-server-simple \
-    perl-file-copy-recursive perl-fcgi perl-uri \
+    perl-file-copy-recursive perl-fcgi perl-uri ttf-dejavu \
     dcron wget curl g++ perl-dev pcre-dev expat expat-dev
 
 RUN adduser -u 497 -D munin &&\
