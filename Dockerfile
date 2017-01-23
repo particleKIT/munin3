@@ -8,12 +8,14 @@ RUN apk update && apk upgrade && apk add \
     perl-net-server perl-date-manip perl-io-socket-inet6 \
     perl-log-dispatch perl-dbi perl-dbd-sqlite perl-http-server-simple \
     perl-file-copy-recursive perl-fcgi perl-uri ttf-dejavu \
-    dcron wget curl g++ perl-dev pcre-dev expat expat-dev &&\
+    dcron wget curl g++ perl-dev pcre-dev expat expat-dev tzdata &&\
     adduser -u 497 -D munin &&\
     git clone git://github.com/munin-monitoring/munin /munin &&\
     cd /munin && perl Build.PL && yes| ./Build installdeps &&\ 
     ./Build && make && make install && cd / && rm -rf /munin &&\
-    apk del g++ perl-dev pcre-dev expat expat-dev git make &&\
+    cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime &&\
+    echo "Europe/Berlin" > /etc/timezone &&\
+    apk del tzdata g++ perl-dev pcre-dev expat expat-dev git make &&\
     install -m 755 -d -o munin -g munin /var/run/munin /var/lib/munin /var/log/munin &&\
     mkdir /usr/local/etc/munin/plugins &&\
     mkdir /usr/local/etc/munin/munin-conf.d &&\
