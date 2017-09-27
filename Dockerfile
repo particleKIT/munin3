@@ -3,7 +3,7 @@ MAINTAINER TTP/ITP <admin@particle.kit.edu>
 
 RUN apk update && apk upgrade && apk add \
     vim bash git make java-gcj-compat rrdtool python ruby \
-    perl perl-module-build perl-rrd perl-net-snmp \
+    perl perl-module-build perl-rrd perl-net-snmp perl-namespace-autoclean \
     perl-log-log4perl perl-html-template perl-net-ssleay \
     perl-net-server perl-date-manip perl-io-socket-inet6 \
     perl-log-dispatch perl-dbi perl-dbd-sqlite perl-http-server-simple \
